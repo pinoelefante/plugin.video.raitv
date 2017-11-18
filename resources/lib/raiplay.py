@@ -69,7 +69,7 @@ class RaiPlay:
         return response["video"]
     
     def getUrl(self, pathId):
-        pathId = pathId.replace(" ", "%20")
+        pathId = urllib2.unquote(pathId)
         if pathId[0:2] == "//":
             url = "http:" + pathId
         elif pathId[0] == "/":
